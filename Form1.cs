@@ -2,6 +2,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WinTesteTarget_Sistemas
@@ -15,6 +16,13 @@ namespace WinTesteTarget_Sistemas
             public int dia { get; set; }
             public double valor { get; set; }
         }
+
+        class faturamento
+        {
+            public string uf { get; set; }
+            public double valor { get; set; }
+        }
+
 
 
         public Form1()
@@ -124,16 +132,51 @@ namespace WinTesteTarget_Sistemas
 
         private void Questao3_Click(object sender, EventArgs e)
         {
-            List<ValoresDiaMes> lista =  popularMes();          
+            List<ValoresDiaMes> lista = popularMes();
 
             var maiorfaturamento = lista.MaxBy(c => c.valor).valor;
             var menorfaturamento = lista.MinBy(c => c.valor).valor; ;
-            double  mediafaturamento = lista.Sum(c=>c.valor) / lista.Count();
+            double mediafaturamento = lista.Sum(c => c.valor) / lista.Count();
             var qtdeDiaSuperiorMedaia = lista.Count(c => c.valor > mediafaturamento);
 
             txtMaiorFaturamento.Text = maiorfaturamento.ToString();
-            txtMenorFaturamento.Text = menorfaturamento.ToString();            
+            txtMenorFaturamento.Text = menorfaturamento.ToString();
             txtQtdeMaiorMediaDia.Text = qtdeDiaSuperiorMedaia.ToString();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<faturamento> lista = new List<faturamento>()
+            {
+                new faturamento { uf = "SP", valor = 67836.43 },
+                new faturamento { uf = "RJ", valor = 36678.66 },
+                new faturamento { uf = "MG", valor = 29229.88 },
+                new faturamento { uf = "ES", valor = 27165.48 },
+                new faturamento { uf = "Outros", valor = 19849.53 }
+            };
+
+            var vrTotal = lista.Sum(c => c.valor);
+            var percentualMG = lista.Select(c => new { uf = c.uf, percentual = (c.valor / vrTotal) * 100 }).ToList();
+
+            foreach (var item in percentualMG)
+            {
+                textRetornoQ1.Text += "UF: " + item.uf + " , Percentual: " + item.percentual.ToString("0.00") + "%" + Environment.NewLine;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            txtString2.Text = string.Empty;
+
+
+            char[] cArray = txtString1.Text.ToCharArray();
+            string reverse = string.Empty;
+            for (int i = cArray.Length - 1; i > -1; i--)
+            {
+                reverse += cArray[i];
+            }
+            txtString2.Text = reverse;
 
         }
     }

@@ -43,6 +43,13 @@
             txtMaiorFaturamento = new TextBox();
             label6 = new Label();
             txtQtdeMaiorMediaDia = new TextBox();
+            button1 = new Button();
+            textRetornoQ1 = new TextBox();
+            button2 = new Button();
+            label7 = new Label();
+            txtString2 = new TextBox();
+            label8 = new Label();
+            txtString1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)entradaNumeroFB).BeginInit();
             SuspendLayout();
             // 
@@ -172,11 +179,78 @@
             txtQtdeMaiorMediaDia.Size = new Size(100, 23);
             txtQtdeMaiorMediaDia.TabIndex = 14;
             // 
+            // button1
+            // 
+            button1.Location = new Point(69, 194);
+            button1.Name = "button1";
+            button1.Size = new Size(100, 23);
+            button1.TabIndex = 16;
+            button1.Text = "Questão 4";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // textRetornoQ1
+            // 
+            textRetornoQ1.Location = new Point(175, 194);
+            textRetornoQ1.Multiline = true;
+            textRetornoQ1.Name = "textRetornoQ1";
+            textRetornoQ1.Size = new Size(796, 153);
+            textRetornoQ1.TabIndex = 17;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(61, 400);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 23);
+            button2.TabIndex = 18;
+            button2.Text = "Questão 5";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(499, 404);
+            label7.Name = "label7";
+            label7.Size = new Size(77, 15);
+            label7.TabIndex = 20;
+            label7.Text = "string reversa";
+            // 
+            // txtString2
+            // 
+            txtString2.Location = new Point(582, 401);
+            txtString2.Name = "txtString2";
+            txtString2.Size = new Size(287, 23);
+            txtString2.TabIndex = 19;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(178, 404);
+            label8.Name = "label8";
+            label8.Size = new Size(38, 15);
+            label8.TabIndex = 22;
+            label8.Text = "String";
+            // 
+            // txtString1
+            // 
+            txtString1.Location = new Point(222, 400);
+            txtString1.Name = "txtString1";
+            txtString1.Size = new Size(252, 23);
+            txtString1.TabIndex = 21;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1177, 450);
+            ClientSize = new Size(1177, 494);
+            Controls.Add(label8);
+            Controls.Add(txtString1);
+            Controls.Add(label7);
+            Controls.Add(txtString2);
+            Controls.Add(button2);
+            Controls.Add(textRetornoQ1);
+            Controls.Add(button1);
             Controls.Add(label6);
             Controls.Add(txtQtdeMaiorMediaDia);
             Controls.Add(label5);
@@ -216,5 +290,12 @@
         private TextBox txtMaiorFaturamento;
         private Label label6;
         private TextBox txtQtdeMaiorMediaDia;
+        private Button button1;
+        private TextBox textRetornoQ1;
+        private Button button2;
+        private Label label7;
+        private TextBox txtString2;
+        private Label label8;
+        private TextBox txtString1;
     }
 }
